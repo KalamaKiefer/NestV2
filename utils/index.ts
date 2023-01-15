@@ -7,6 +7,8 @@ type JwtProps = {
   sub: string;
 };
 
+export const BASE_URL = process.env.BASE_URL;
+
 export const fetchUser = async (response: any, addUser: any) => {
   const decodeJwt: JwtProps = jwtDecode(response.credential);
 
@@ -21,5 +23,5 @@ export const fetchUser = async (response: any, addUser: any) => {
 
   addUser(user);
 
-  await axios.post("http://localhost:3000/api/auth", user);
+  await axios.post(`${BASE_URL}/api/auth`, user);
 };

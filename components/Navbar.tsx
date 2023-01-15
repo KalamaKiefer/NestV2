@@ -35,7 +35,7 @@ const Navbar = () => {
           }
         >
           <input
-            defaultValue="Search"
+            placeholder="Search"
             className={
               openSearch
                 ? userProfile
@@ -45,7 +45,9 @@ const Navbar = () => {
             }
           />
           <button
-            className="focus:outline-none"
+            className={
+              openSearch ? "focus:outline-none" : "focus:outline-none pt-2"
+            }
             onClick={() => {
               setOpenSearch(!openSearch);
             }}
@@ -57,7 +59,7 @@ const Navbar = () => {
         {userProfile ? (
           <>
             {userProfile.image && (
-              <Link href="/">
+              <Link href="/UserProfile">
                 <>
                   <Image
                     width={40}

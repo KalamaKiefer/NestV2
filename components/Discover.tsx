@@ -12,15 +12,15 @@ type IconProps = {
 
 const SidebarIcon = ({ item, active }: IconProps) => {
   const activeTopic =
-    "xl:border-2 hover:bg-primary px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer xl:border-green-prime text-green-prime";
+    "lg:border-2 hover:bg-primary px-3 py-2 rounded lg:rounded-full flex items-center gap-2 justify-center cursor-pointer lg:border-green-prime text-green-prime";
   const normalTopic =
-    "xl:border-2 hover:bg-primary xl:border-gray-dark px-3 py-2 rounded xl:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black";
+    "lg:border-2 hover:bg-primary lg:border-gray-dark px-3 py-2 rounded lg:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black";
 
   return (
     <Link href={`/?topic=${item.name}`} key={item.name}>
       <div className={active ? activeTopic : normalTopic}>
-        <span className="font-bold text-2xl xl:text-md">{item.icon}</span>
-        <span className="font-medium text-md hidden xl:block capitalize">
+        <span className="font-bold text-2xl lg:text-md">{item.icon}</span>
+        <span className="font-medium text-md hidden lg:block capitalize">
           {item.name}
         </span>
       </div>
@@ -40,8 +40,8 @@ const Discover = () => {
   const { topic } = router.query;
 
   return (
-    <div className="xl:border-b-2 xl:border-gray-light pb-6">
-      <p className="text-gray-dark m-3 mt-4 hidden xl:block">Trending Topics</p>
+    <div className="lg:border-b-2 lg:border-gray-light pb-6">
+      <p className="text-gray-dark m-3 mt-4 hidden lg:block">Trending Topics</p>
       <div className="flex gap-3 flex-wrap">
         {topics.map((item) => (
           <SidebarIcon

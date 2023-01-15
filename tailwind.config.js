@@ -7,7 +7,12 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        xxs: "360px",
         smd: "420px",
+      },
+      fontFamily: {
+        body: ["Sora", "sans-serif"],
+        main: ["Ubuntu", "sans-serif"],
       },
       width: {
         1600: "1600px",
@@ -44,6 +49,9 @@ module.exports = {
       },
       height: {
         "88vh": "88vh",
+      },
+      fontSize: {
+        title: "16px",
       },
       backgroundImage: {
         "blurred-img":
