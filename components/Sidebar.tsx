@@ -45,7 +45,7 @@ const Sidebar = () => {
           <Discover />
           {userProfile && (
             <button
-              className="self-center font-bold text-2xl lg:text-md mb-4 cursor-pointer rounded md:hidden "
+              className="self-center font-bold text-2xl lg:text-md mb-4 cursor-pointer rounded lg:hidden"
               type="button"
               onClick={() => {
                 googleLogout();
@@ -57,6 +57,18 @@ const Sidebar = () => {
           )}
 
           <SuggestedAccounts />
+          {userProfile && (
+            <button
+              className="text-2xl cursor-pointer border-2 border-black bg-green-prime justify-center items-center rounded-2xl hidden lg:flex p-2 my-6 hover:bg-white hover:text-green-prime hover:border-green-prime"
+              type="button"
+              onClick={() => {
+                googleLogout();
+                removeUser();
+              }}
+            >
+              Logout
+            </button>
+          )}
           <Footer />
         </div>
       )}

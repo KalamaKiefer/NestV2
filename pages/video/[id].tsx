@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import useAuthStore from "../../store/authStore";
 import Link from "next/link";
+import CommentBar from "../../components/CommentBar";
 
 interface VideoProps {
   post: Video;
@@ -36,7 +37,7 @@ const VideoPage = ({ post }: VideoProps) => {
   return (
     <div className="flex lg:flex-col w-full fixed inset-0 bg-white">
       <div className="relative flex justity-center items-start overflow-y-auto">
-        <div className="py-14 bg-green-prime">
+        <div className="pt-14 bg-green-prime">
           <video
             ref={videoRef}
             loop
@@ -78,7 +79,7 @@ const VideoPage = ({ post }: VideoProps) => {
                 </button>
               </div>
             )}
-            <div>Likes, Comments</div>
+            <CommentBar />
           </div>
         </div>
       </div>

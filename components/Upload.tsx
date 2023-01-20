@@ -85,7 +85,7 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex w-full h-full ease-in-out transition-all duration-500 relative">
+    <div className="flex w-full h-full ease-in-out transition-all duration-500 relative lg:justify-center">
       <div className="bg-white rounded-lg">
         <div>
           <div>
