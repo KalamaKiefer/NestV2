@@ -14,6 +14,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap"
           rel="stylesheet"
         />
+        <script src="https://cdn.jsdelivr.net/npm/@animxyz/react"></script>
       </Head>
       <body>
         <Main />

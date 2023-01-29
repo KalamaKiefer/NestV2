@@ -39,7 +39,6 @@ export default async function handler(
       }`;
 
     const data = await client.fetch(query);
-    console.log(data);
 
     res.status(200).json(data[0]);
   }

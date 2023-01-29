@@ -7,13 +7,13 @@ import NoResults from "../components/NoResults";
 import Upload from "../components/Upload";
 import VideoCard from "../components/VideoCard";
 import useAuthStore from "../store/authStore";
-import { BASE_URL } from "../utils";
-import { Video } from "../utils/types";
-
-const inter = Inter({ subsets: ["latin"] });
+import { NEXT_PUBLIC_BASE_URL } from "../utils";
+import { PostProps } from "../utils/types";
+import "@animxyz/core";
+import { XyzTransition } from "@animxyz/react";
 
 type HomeProps = {
-  videos: Video[];
+  videos: PostProps[];
 };
 
 export default function Home({ videos }: HomeProps) {
@@ -21,20 +21,24 @@ export default function Home({ videos }: HomeProps) {
 
   return (
     <div className="flex flex-col gap-10 videos h-full">
-      {uploadPage ? (
-        <>
-          <Upload />
-          <button
-            className="absolute top-24 right-4 md:right-[2%]"
-            onClick={() => setUploadPage(!uploadPage)}
-          >
-            <ImCancelCircle className="cursor-pointer w-[20px] h-[20px]" />
-          </button>
-        </>
-      ) : (
+      <XyzTransition xyz="fade down">
+        {uploadPage && (
+          <div>
+            <Upload />
+            <button
+              className="absolute top-24 right-4 md:right-[2%]"
+              onClick={() => setUploadPage(!uploadPage)}
+            >
+              <ImCancelCircle className="cursor-pointer w-[20px] h-[20px]" />
+            </button>
+          </div>
+        )}
+      </XyzTransition>
+
+      {!uploadPage && (
         <>
           {videos.length ? (
-            videos.map((video: Video) => (
+            videos.map((video: PostProps) => (
               <VideoCard post={video} key={video._id} />
             ))
           ) : (
@@ -53,7 +57,7 @@ export default function Home({ videos }: HomeProps) {
 }
 
 export const getServerSideProps = async () => {
-  const { data } = await axios.get(`${BASE_URL}/api/post`);
+  const { data } = await axios.get(`${NEXT_PUBLIC_BASE_URL}/api/post`);
 
   return {
     props: {

@@ -4,7 +4,7 @@ export interface userProps {
   image: string;
 }
 
-export interface Video {
+export interface PostProps {
   caption: string;
   video: {
     asset: {
@@ -22,8 +22,8 @@ export interface Video {
     postedBy: {
       _id: string;
       userName: string;
-      image: string;
     };
+    _ref: string | undefined;
   }[];
   comments: {
     comment: string;
@@ -33,4 +33,8 @@ export interface Video {
     };
   }[];
   userId: string;
+}
+
+export interface LikeProps extends PostProps {
+  likes: {};
 }

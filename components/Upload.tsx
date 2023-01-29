@@ -14,7 +14,7 @@ import { client } from "../utils/client";
 import { SanityAssetDocument } from "@sanity/client";
 import { GiCakeSlice } from "react-icons/gi";
 import { userProps } from "../utils/types";
-import { BASE_URL } from "../utils";
+import { NEXT_PUBLIC_BASE_URL } from "../utils";
 
 const Upload = () => {
   const topics = [
@@ -78,7 +78,7 @@ const Upload = () => {
         topic: category,
       };
 
-      await axios.post(`${BASE_URL}/api/post`, newVideo);
+      await axios.post(`${NEXT_PUBLIC_BASE_URL}/api/post`, newVideo);
 
       router.push("/");
     }

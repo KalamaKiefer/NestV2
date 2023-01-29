@@ -1,17 +1,17 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { BASE_URL } from "../../utils";
-import { Video } from "../../utils/types";
+import { NEXT_PUBLIC_BASE_URL } from "../../utils";
+import { PostProps } from "../../utils/types";
 import { MdOutlineCancel } from "react-icons/md";
 import { BsFillArrowLeftCircleFill, BsFillPlayFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import useAuthStore from "../../store/authStore";
 import Link from "next/link";
-import CommentBar from "../../components/CommentBar";
+import VideoCaption from "../../components/VideoCaption";
 
 interface VideoProps {
-  post: Video;
+  post: PostProps;
 }
 
 const VideoPage = ({ post }: VideoProps) => {
@@ -32,12 +32,12 @@ const VideoPage = ({ post }: VideoProps) => {
     }
   };
 
-  if (!post) return null;
+  if (!post || !userProfile) return null;
 
   return (
     <div className="flex lg:flex-col w-full fixed inset-0 bg-white">
-      <div className="relative flex justity-center items-start overflow-y-auto">
-        <div className="pt-14 bg-green-prime">
+      <div className="relative flex justity-center items-start">
+        <div className="pt-14 bg-blue-200">
           <video
             ref={videoRef}
             loop
@@ -79,7 +79,8 @@ const VideoPage = ({ post }: VideoProps) => {
                 </button>
               </div>
             )}
-            <CommentBar />
+
+            <VideoCaption post={post} userProfile={userProfile} />
           </div>
         </div>
       </div>
@@ -93,7 +94,8 @@ export const getServerSideProps = async ({
 }: {
   params: { id: string };
 }) => {
-  const { data } = await axios.get(`${BASE_URL}/api/post/${id}`);
+  console.log(NEXT_PUBLIC_BASE_URL);
+  const { data } = await axios.get(`${NEXT_PUBLIC_BASE_URL}/api/post/${id}`);
 
   return {
     props: { post: data },

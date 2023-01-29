@@ -7,10 +7,10 @@ import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 import { GoVerified } from "react-icons/go";
 import Link from "next/link";
 import Image from "next/image";
-import { Video } from "../utils/types";
+import { PostProps } from "../utils/types";
 
 type VideoProps = {
-  post: Video;
+  post: PostProps;
 };
 
 const VideoCard: NextPage<VideoProps> = ({ post }) => {
@@ -35,7 +35,7 @@ const VideoCard: NextPage<VideoProps> = ({ post }) => {
       <div>
         <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded">
           <div className="md:w-16 md:h-16 w-10 h-10">
-            <Link href="/UserProfile">
+            <Link href="/user/UserProfile">
               <>
                 <Image
                   width={62}
