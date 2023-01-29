@@ -34,7 +34,3 @@ export interface PostProps {
   }[];
   userId: string;
 }
-
-export interface LikeProps extends PostProps {
-  likes: {};
-}
