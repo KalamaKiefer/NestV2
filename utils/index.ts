@@ -7,7 +7,7 @@ type JwtProps = {
   sub: string;
 };
 
-export const NEXT_PUBLIC_BASE_URL = "http://localhost:3000";
+export const NEXT_PUBLIC_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const fetchUser = async (response: any, addUser: any) => {
   const decodeJwt: JwtProps = jwtDecode(response.credential);
